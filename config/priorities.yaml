@@ -1,0 +1,261 @@
+# Configuración de Prioridades para el Agente Selector
+# Este archivo define qué noticias son más importantes para ti
+
+# Palabras clave de ULTRA ALTA prioridad (+25 puntos cada una)
+# SOLO noticias sobre LANZAMIENTOS, NUEVAS VERSIONES, CAMBIOS TÉCNICOS
+ultra_high_priority_keywords:
+  # Lanzamientos y versiones específicas
+  - "TypeScript 5"
+  - "TypeScript 6"
+  - "Next.js 15"
+  - "Next.js 16"
+  - "React 19"
+  - "React 20"
+  - "Python 3.13"
+  - "Python 3.14"
+  - "Rust 1."
+  - "Deno 2"
+  - "Bun 1."
+  - "Node.js 22"
+  - "Supabase launch"
+  - "Vercel announce"
+  - "announces"
+  - "releases"
+  - "version"
+  - "v1.0"
+  - "v2.0"
+  - "beta"
+  - "stable release"
+  
+  # Decisiones técnicas de empresas
+  - "migrating to"
+  - "replacing with"
+  - "switching to"
+  - "adopting"
+  - "deprecating"
+  - "removing"
+  - "rewriting in"
+  
+  # Herramientas de código IA específicas
+  - "Cursor IDE"
+  - "Cursor AI"
+  - "Lovable.dev"
+  - "v0 by Vercel"
+  - "Bolt.new"
+  - "Replit Agent"
+  - "Claude Code"
+  - "GitHub Copilot"
+  - "Codeium"
+  
+  # Hardware: lanzamientos y escasez REAL
+  - "RTX 50"
+  - "RTX 60"
+  - "GPU shortage"
+  - "RAM shortage"
+  - "DDR6"
+  - "HBM3"
+  - "TSMC closure"
+  - "fab shutdown"
+  - "chip shortage"
+  - "semiconductor shortage"
+
+# Palabras clave de ALTA prioridad (+18 puntos cada una)
+high_priority_keywords:
+  # Nuevas librerías y frameworks
+  - "new framework"
+  - "new library"
+  - "open source"
+  - "launched"
+  - "debuts"
+  - "unveils"
+  - "introduces"
+  
+  # Herramientas y empresas IA
+  - "Cursor"
+  - "Lovable"
+  - "Vercel"
+  - "Anthropic"
+  - "Claude"
+  - "Gemini 2"
+  - "GPT-5"
+  - "o1"
+  - "o3"
+  
+  # Stack técnico moderno
+  - "Supabase"
+  - "Prisma"
+  - "Drizzle"
+  - "tRPC"
+  - "Hono"
+  - "Astro"
+  - "Remix"
+  - "SolidJS"
+  - "Qwik"
+  - "Turbo"
+  - "Vite"
+  
+  # Hardware y componentes
+  - "Nvidia H100"
+  - "Nvidia B100"
+  - "AMD MI300"
+  - "TSMC"
+  - "Intel Arc"
+  - "factory"
+  - "manufacturing"
+
+# Palabras clave de MEDIA prioridad (+8 puntos cada una)
+medium_priority_keywords:
+  # IA general
+  - "LLM"
+  - "machine learning"
+  - "deep learning"
+  - "neural network"
+  - "transformer"
+  - "AI"
+  - "artificial intelligence"
+  
+  # Dev tools y lenguajes
+  - "Python"
+  - "JavaScript"
+  - "Rust"
+  - "Go"
+  - "Deno"
+  - "Bun"
+  - "React"
+  - "Vue"
+  - "Angular"
+  - "Svelte"
+  
+  # Cloud/DevOps
+  - "AWS"
+  - "Azure"
+  - "GCP"
+  - "Docker"
+  - "Kubernetes"
+  - "serverless"
+  - "edge computing"
+  
+  # Hardware general
+  - "GPU"
+  - "CPU"
+  - "memory"
+  - "storage"
+  - "quantum"
+  
+  # Empresas tech
+  - "Google"
+  - "Microsoft"
+  - "Apple"
+  - "Meta"
+  - "Amazon"
+  
+  # Startups y funding
+  - "startup"
+  - "funding"
+  - "Series A"
+  - "Series B"
+  - "IPO"
+  - "acquisition"
+
+# Palabras clave de BAJA prioridad (+2 puntos cada una)
+low_priority_keywords:
+  - "update"
+  - "release"
+  - "launch"
+  - "new"
+  - "tech"
+  - "digital"
+  - "innovation"
+
+# Palabras a EXCLUIR (-100 puntos, descarta inmediatamente)
+exclude_keywords:
+  # Contenido adulto
+  - "NSFW"
+  - "adult"
+  - "gambling"
+  - "casino"
+  - "porn"
+  
+  # Temas NO relevantes
+  - "child exploitation"
+  - "abuse"
+  - "fraud"
+  - "scam"
+  - "fake"
+  - "counterfeit"
+  - "lawsuit"
+  - "sues"
+  - "legal battle"
+  - "court"
+  - "privacy policy"
+  - "data breach"
+  - "hacked"
+  - "ransomware"
+  
+  # Noticias muy genéricas
+  - "raises funding"
+  - "secures funding"
+  - "funding round"
+  - "billion funding"
+  - "investment"
+  - "valuation"
+  
+  # Gaming (a menos que sea sobre IA en gaming)
+  - "Call of Duty"
+  - "gaming revenue"
+  - "game sales"
+  
+  # Política y regulación
+  - "regulation"
+  - "government"
+  - "policy"
+  - "ban"
+  - "import ban"
+
+# Fuentes de noticias prioritarias (+12 puntos adicionales)
+# SOLO fuentes oficiales de empresas tech
+priority_sources:
+  # Blogs oficiales de empresas
+  - "OpenAI Blog"
+  - "Anthropic News"
+  - "Vercel Blog"
+  - "Supabase Blog"
+  - "TypeScript Blog"
+  - "Rust Blog"
+  - "React Blog"
+  - "Node.js Blog"
+  - "Deno Blog"
+  - "Prisma Blog"
+  - "GitHub Blog"
+  - "Google Developers Blog"
+  - "Google AI Blog"
+  - "Microsoft Developer Blog"
+  - "Meta Engineering"
+  - "Netflix Tech Blog"
+  - "Uber Engineering"
+  - "Airbnb Engineering"
+  - "Stripe Engineering"
+  - "Cloudflare Blog"
+  - "Nvidia Blog"
+  - "Intel Newsroom"
+  
+  # Tech media de calidad
+  - "Hacker News"
+  - "TechCrunch"
+  - "Ars Technica"
+  - "Dev.to"
+  - "The Verge"
+
+# Configuración de scoring
+scoring:
+  min_score: 30              # Puntaje mínimo MÁS ALTO (más estricto)
+  title_weight: 3.0          # Multiplicador si keyword está en título (aumentado)
+  max_tweets_per_run: 8      # Máximo de tweets a generar por ejecución
+  
+# Filtros adicionales
+filters:
+  min_title_length: 20       # Título mínimo en caracteres
+  max_title_length: 200      # Título máximo
+  max_age_hours: 24          # Máximo 24 horas de antigüedad
+  remove_duplicates: true    # Eliminar noticias duplicadas
+

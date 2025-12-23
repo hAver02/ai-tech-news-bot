@@ -1,0 +1,273 @@
+# Configuración de fuentes de noticias
+
+# RSS Feeds - No requieren API key
+rss_feeds:
+  # === Top Tech News (Inglés) ===
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+    category: "startups"
+    
+  - name: "Hacker News"
+    url: "https://hnrss.org/frontpage"
+    category: "tech"
+    
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+    category: "tech"
+    
+  - name: "Ars Technica"
+    url: "http://feeds.arstechnica.com/arstechnica/index"
+    category: "tech"
+    
+  - name: "Wired"
+    url: "https://www.wired.com/feed/rss"
+    category: "tech"
+  
+  - name: "Engadget"
+    url: "https://www.engadget.com/rss.xml"
+    category: "tech"
+  
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/feed/"
+    category: "ai"
+  
+  - name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
+    category: "tech"
+  
+  - name: "CNET"
+    url: "https://www.cnet.com/rss/news/"
+    category: "tech"
+  
+  - name: "Mashable"
+    url: "https://mashable.com/feeds/rss/all"
+    category: "tech"
+  
+  - name: "ZDNet"
+    url: "https://www.zdnet.com/news/rss.xml"
+    category: "enterprise"
+  
+  - name: "Gizmodo"
+    url: "https://gizmodo.com/feed"
+    category: "tech"
+  
+  # === AI & Machine Learning ===
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss/"
+    category: "ai"
+  
+  - name: "Towards Data Science"
+    url: "https://towardsdatascience.com/feed"
+    category: "ml"
+  
+  # === Programación & Desarrollo ===
+  - name: "Dev.to"
+    url: "https://dev.to/feed"
+    category: "dev"
+  
+  - name: "GitHub Blog"
+    url: "https://github.blog/feed/"
+    category: "dev"
+  
+  - name: "Stack Overflow Blog"
+    url: "https://stackoverflow.blog/feed/"
+    category: "dev"
+  
+  # === Python Específico ===
+  - name: "Real Python"
+    url: "https://realpython.com/atom.xml"
+    category: "python"
+  
+  - name: "Planet Python"
+    url: "https://planetpython.org/rss20.xml"
+    category: "python"
+  
+  - name: "Python Insider"
+    url: "https://blog.python.org/feeds/posts/default"
+    category: "python"
+  
+  # === Framework y Library Releases (CRÍTICOS) ===
+  - name: "Vercel Blog"
+    url: "https://vercel.com/blog/rss.xml"
+    category: "frontend"
+  
+  - name: "Supabase Blog"
+    url: "https://supabase.com/blog/rss.xml"
+    category: "database"
+  
+  - name: "Rust Blog"
+    url: "https://blog.rust-lang.org/feed.xml"
+    category: "rust"
+  
+  - name: "TypeScript Blog"
+    url: "https://devblogs.microsoft.com/typescript/feed/"
+    category: "typescript"
+  
+  - name: "React Blog"
+    url: "https://react.dev/rss.xml"
+    category: "react"
+  
+  - name: "Node.js Blog"
+    url: "https://nodejs.org/en/feed/blog.xml"
+    category: "nodejs"
+  
+  - name: "Deno Blog"
+    url: "https://deno.com/blog/feed.xml"
+    category: "deno"
+  
+  - name: "Prisma Blog"
+    url: "https://www.prisma.io/blog/rss.xml"
+    category: "database"
+  
+  - name: "Anthropic News"
+    url: "https://www.anthropic.com/news/rss.xml"
+    category: "ai"
+  
+  # === Empresas Tech - Blogs Oficiales ===
+  - name: "Google Developers Blog"
+    url: "https://developers.googleblog.com/feeds/posts/default"
+    category: "google"
+  
+  - name: "Google AI Blog"
+    url: "https://ai.googleblog.com/feeds/posts/default"
+    category: "ai"
+  
+  - name: "Microsoft Developer Blog"
+    url: "https://devblogs.microsoft.com/feed/"
+    category: "microsoft"
+  
+  - name: "Meta Engineering"
+    url: "https://engineering.fb.com/feed/"
+    category: "meta"
+  
+  - name: "Netflix Tech Blog"
+    url: "https://netflixtechblog.com/feed"
+    category: "engineering"
+  
+  - name: "Uber Engineering"
+    url: "https://eng.uber.com/feed/"
+    category: "engineering"
+  
+  - name: "Airbnb Engineering"
+    url: "https://medium.com/feed/airbnb-engineering"
+    category: "engineering"
+  
+  - name: "Stripe Engineering"
+    url: "https://stripe.com/blog/feed.rss"
+    category: "fintech"
+  
+  - name: "Cloudflare Blog"
+    url: "https://blog.cloudflare.com/rss/"
+    category: "cloud"
+  
+  # === Hardware - Blogs Oficiales ===
+  - name: "Nvidia Blog"
+    url: "https://blogs.nvidia.com/feed/"
+    category: "hardware"
+  
+  - name: "Intel Newsroom"
+    url: "https://newsroom.intel.com/feed/"
+    category: "hardware"
+  
+  - name: "Tom's Hardware"
+    url: "https://www.tomshardware.com/feeds/all"
+    category: "hardware"
+  
+  - name: "AnandTech"
+    url: "https://www.anandtech.com/rss/"
+    category: "hardware"
+  
+  # === Startups & Business ===
+  - name: "Product Hunt"
+    url: "https://www.producthunt.com/feed"
+    category: "startups"
+  
+  - name: "Indie Hackers"
+    url: "https://www.indiehackers.com/feed"
+    category: "startups"
+  
+  # === Seguridad ===
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+    category: "security"
+  
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+    category: "security"
+  
+  # === Tech en Español ===
+  - name: "Xataka"
+    url: "https://www.xataka.com/index.xml"
+    category: "tech"
+  
+  - name: "Genbeta"
+    url: "https://www.genbeta.com/index.xml"
+    category: "tech"
+  
+  - name: "Hipertextual"
+    url: "https://hipertextual.com/feed"
+    category: "tech"
+  
+  - name: "FayerWayer"
+    url: "https://www.fayerwayer.com/feed/"
+    category: "tech"
+  
+  # === Móviles & Apps ===
+  - name: "Android Police"
+    url: "https://www.androidpolice.com/feed/"
+    category: "mobile"
+  
+  - name: "9to5Google"
+    url: "https://9to5google.com/feed/"
+    category: "mobile"
+  
+  - name: "9to5Mac"
+    url: "https://9to5mac.com/feed/"
+    category: "mobile"
+
+# Subreddits de Reddit
+reddit_sources:
+  - name: "r/technology"
+    subreddit: "technology"
+    limit: 10
+    
+  - name: "r/programming"
+    subreddit: "programming"
+    limit: 10
+    
+  - name: "r/Python"
+    subreddit: "Python"
+    limit: 5
+    
+  - name: "r/artificial"
+    subreddit: "artificial"
+    limit: 5
+
+# News API queries
+news_api_queries:
+  - query: "artificial intelligence"
+    language: "es"
+    
+  - query: "technology"
+    language: "es"
+    
+  - query: "startup"
+    language: "es"
+
+# Configuración de filtros
+filters:
+  min_score: 100  # Mínimo score de Reddit
+  max_age_hours: 24  # Máximo 24 horas de antigüedad
+  keywords_include:
+    - "AI"
+    - "Python"
+    - "startup"
+    - "tecnología"
+    - "inteligencia artificial"
+    - "machine learning"
+    - "blockchain"
+    - "crypto"
+  keywords_exclude:
+    - "NSFW"
+    - "offtopic"
+
