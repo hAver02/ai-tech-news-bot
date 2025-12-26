@@ -1,0 +1,94 @@
+# Queries avanzadas y específicas para mejores resultados
+
+# Categorías de búsqueda MUY específicas
+categories:
+  
+  ai_coding:
+    - "Cursor IDE new features 2025"
+    - "Cursor composer mode tutorial"
+    - "Windsurf IDE vs Cursor benchmark"
+    - "Claude Sonnet coding capabilities"
+    - "Aider AI pair programming"
+    - "GitHub Copilot workspace updates"
+    - "AI coding assistant comparison"
+    - "Cline VSCode extension tutorial"
+    
+  hardware_ai:
+    - "Nvidia H100 availability update"
+    - "RTX 50 series specifications leak"
+    - "AMD MI300X adoption rate"
+    - "GPU memory bandwidth bottleneck"
+    - "AI chip startup Series A"
+    - "Groq LPU performance benchmark"
+    - "Cerebras wafer scale engine"
+    - "TSMC 3nm AI chips"
+    
+  frameworks:
+    - "Next.js 15 turbopack stable"
+    - "Next.js server actions tutorial"
+    - "TypeScript 5.7 breaking changes"
+    - "React 19 compiler optimization"
+    - "Svelte 5 runes migration"
+    - "Astro 5 content collections"
+    - "Remix vs Next.js 2025"
+    
+  databases:
+    - "Supabase realtime channels"
+    - "Supabase edge functions runtime"
+    - "Prisma 6 performance improvements"
+    - "PostgreSQL 17 new features"
+    - "Turso edge database benchmark"
+    - "Neon serverless postgres pricing"
+    - "PlanetScale schema changes"
+    
+  rust_systems:
+    - "Rust async runtime tokio"
+    - "Rust 1.80 stabilization"
+    - "Rust for systems programming 2025"
+    - "Tauri vs Electron performance"
+    - "Rust web framework comparison"
+    
+  ai_models:
+    - "Claude 3.7 Sonnet release"
+    - "GPT-4 Turbo API pricing"
+    - "Gemini 2.0 Pro capabilities"
+    - "Llama 4 training details"
+    - "Mixtral 8x22B benchmark"
+    - "Qwen 2.5 coder model"
+    
+  startups:
+    - "Vercel acquisition rumors"
+    - "AI infrastructure startup funding"
+    - "Developer tools Series B"
+    - "Anthropic valuation update"
+    - "Replit acquisition price"
+
+# Términos para EXCLUIR (mejor filtrado)
+exclude_terms:
+  - "cryptocurrency"
+  - "NFT"
+  - "Call of Duty"
+  - "Fortnite"
+  - "raises funding round"  # Muy genérico
+  - "announces partnership"  # Muy genérico
+  - "celebrity"
+  - "influencer"
+  - "political"
+  - "regulatory"
+  - "lawsuit"
+  - "controversy"
+
+# Términos de ALTA prioridad (boost scoring)
+high_priority_terms:
+  - "breaking changes"
+  - "migration guide"
+  - "performance improvement"
+  - "benchmark results"
+  - "API update"
+  - "security patch"
+  - "official release"
+  - "stable version"
+  - "production ready"
+  - "open source"
+  - "technical deep dive"
+  - "architecture decision"

@@ -14,6 +14,8 @@ from collectors.news_api_collector import NewsAPICollector
 from collectors.hackernews_collector import HackerNewsCollector
 from collectors.reddit_scraper import RedditScraper
 from collectors.devto_collector import DevToCollector
+from collectors.newsdata_collector import NewsDataCollector
+from collectors.guardian_collector import GuardianCollector
 from generators.tweet_generator import TweetGenerator
 from generators.ai_tweet_generator import AITweetGenerator
 from agent import NewsAgent
@@ -46,9 +48,23 @@ def collect_news():
     print("\n📡 Fuente #3: Hacker News")
     print("-" * 60)
     hn_collector = HackerNewsCollector()
-    hn_news = hn_collector.collect(story_type='top', max_items=30, min_score=50)
-    all_news.extend(hn_news)
-    stats['Hacker News'] = len(hn_news)
+    
+    # Top stories (noticias populares)
+    hn_top = hn_collector.collect(story_type='top', max_items=20, min_score=50)
+    print(f"  ✅ HN Top: {len(hn_top)} historias")
+    
+    # New stories (noticias recientes, últimas 2-3 horas)
+    hn_new = hn_collector.collect(story_type='new', max_items=30, min_score=20)
+    print(f"  ✅ HN New: {len(hn_new)} historias")
+    
+    # Best stories (mejores del día)
+    hn_best = hn_collector.collect(story_type='best', max_items=15, min_score=40)
+    print(f"  ✅ HN Best: {len(hn_best)} historias")
+    
+    all_news.extend(hn_top)
+    all_news.extend(hn_new)
+    all_news.extend(hn_best)
+    stats['Hacker News'] = len(hn_top) + len(hn_new) + len(hn_best)
     
     # Fuente 4: Reddit
     print("\n📡 Fuente #4: Reddit (Scraping)")
@@ -69,12 +85,52 @@ def collect_news():
     print("-" * 60)
     devto_collector = DevToCollector()
     devto_news = devto_collector.collect_multiple_tags(
-        tags=['python', 'javascript', 'ai', 'webdev'],
-        per_page_per_tag=8,
-        min_reactions=5
+        tags=[
+            'python', 'javascript', 'typescript', 'ai', 'webdev',
+            'react', 'nextjs', 'rust', 'machinelearning', 
+            'nodejs', 'devops', 'cloud', 'programming'
+        ],
+        per_page_per_tag=5,  # Menos por tag pero más tags
+        min_reactions=3  # Menos restrictivo
     )
     all_news.extend(devto_news)
     stats['Dev.to'] = len(devto_news)
+    
+    # Fuente 6: NewsData.io
+    print("\n📡 Fuente #6: NewsData.io")
+    print("-" * 60)
+    try:
+        newsdata_collector = NewsDataCollector()
+        newsdata_news = newsdata_collector.collect_multiple_queries(
+            queries=[
+                {'query': 'AI', 'language': 'en'},
+                {'query': 'programming', 'language': 'en'},
+                {'query': 'machine learning', 'language': 'en'},
+                {'query': 'software development', 'language': 'en'},
+                {'query': 'technology startup', 'language': 'en'}
+            ],
+            max_results_per_query=10
+        )
+        all_news.extend(newsdata_news)
+        stats['NewsData.io'] = len(newsdata_news)
+    except Exception as e:
+        print(f"  ⚠️  Error en NewsData.io: {str(e)}")
+        stats['NewsData.io'] = 0
+    
+    # Fuente 7: The Guardian
+    print("\n📡 Fuente #7: The Guardian")
+    print("-" * 60)
+    try:
+        guardian_collector = GuardianCollector()
+        guardian_news = guardian_collector.collect_multiple_sections(
+            sections=['technology', 'science', 'business'],
+            max_results_per_section=20
+        )
+        all_news.extend(guardian_news)
+        stats['The Guardian'] = len(guardian_news)
+    except Exception as e:
+        print(f"  ⚠️  Error en The Guardian: {str(e)}")
+        stats['The Guardian'] = 0
     
     # Guardar todas las noticias combinadas
     if all_news:
@@ -280,6 +336,76 @@ def generate_tweets():
         return tweets
 
 
+def validate_news_with_llm():
+    """Valida noticias recopiladas usando el agente LLM validador."""
+    print("\n🤖 Validando noticias con Agente LLM...")
+    
+    # Cargar noticias
+    news_file = Path("data/news.json")
+    if not news_file.exists():
+        print("⚠️  No hay noticias para validar. Ejecuta 'collect' primero.")
+        return
+    
+    with open(news_file, 'r', encoding='utf-8') as f:
+        all_news = json.load(f)
+    
+    print(f"📰 Cargadas {len(all_news)} noticias")
+    
+    # Importar agente
+    from agents.news_validator_agent import NewsValidatorAgent
+    
+    # Crear y ejecutar agente
+    agent = NewsValidatorAgent()
+    validated_news = agent.validate_batch(
+        all_news,
+        min_relevance=60,
+        min_quality=60,
+        require_recent=True
+    )
+    
+    # Guardar resultado
+    if validated_news:
+        output_file = Path("data/validated_news.json")
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(validated_news, f, ensure_ascii=False, indent=2)
+        
+        print(f"\n✅ {len(validated_news)} noticias validadas")
+        print(f"💾 Guardadas en: {output_file}")
+        print(f"\nEjecuta 'python src/main.py select' para procesar las validadas")
+    else:
+        print("\n❌ Ninguna noticia pasó la validación")
+
+
+def start_continuous_collector():
+    """Inicia el agente recopilador continuo."""
+    print("\n🔄 Iniciando Agente Recopilador Continuo...")
+    
+    # Importar agente
+    from agents.continuous_collector_agent import ContinuousCollectorAgent
+    
+    # Crear agente
+    agent = ContinuousCollectorAgent(
+        interval_minutes=30,  # Cada 30 minutos
+        max_age_hours=4       # Solo últimas 4 horas
+    )
+    
+    # Preguntar duración
+    print("\n¿Cuántas horas quieres que busque noticias?")
+    print("  0 = infinito (hasta Ctrl+C)")
+    print("  1-24 = horas específicas")
+    
+    try:
+        duration = int(input("Horas: ").strip())
+        if duration == 0:
+            duration = None
+    except:
+        duration = 2  # Default: 2 horas
+        print(f"Usando default: {duration} horas")
+    
+    # Ejecutar
+    agent.run_continuously(duration_hours=duration)
+
+
 def list_tweets():
     """Muestra los tweets pendientes de publicar."""
     print("📝 Tweets pendientes:")
@@ -305,7 +431,7 @@ def main():
     
     parser.add_argument(
         'command',
-        choices=['collect', 'select', 'review', 'generate', 'list', 'all'],
+        choices=['collect', 'select', 'review', 'generate', 'list', 'all', 'validate', 'watch'],
         help='Comando a ejecutar'
     )
     
@@ -324,6 +450,10 @@ def main():
         generate_tweets()
     elif args.command == 'list':
         list_tweets()
+    elif args.command == 'validate':
+        validate_news_with_llm()
+    elif args.command == 'watch':
+        start_continuous_collector()
     elif args.command == 'all':
         # Flujo completo con agente
         news = collect_news()

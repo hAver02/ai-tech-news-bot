@@ -212,6 +212,40 @@ rss_feeds:
     url: "https://www.fayerwayer.com/feed/"
     category: "tech"
   
+  # === Google News - Tiempo Real ===
+  - name: "Google News - AI"
+    url: "https://news.google.com/rss/search?q=artificial+intelligence+OR+machine+learning+OR+ChatGPT+OR+OpenAI&hl=en&gl=US&ceid=US:en"
+    category: "ai"
+  
+  - name: "Google News - Programming"
+    url: "https://news.google.com/rss/search?q=programming+OR+software+development+OR+coding&hl=en&gl=US&ceid=US:en"
+    category: "programming"
+  
+  - name: "Google News - Tech Companies"
+    url: "https://news.google.com/rss/search?q=Nvidia+OR+Microsoft+OR+Google+OR+Meta+technology&hl=en&gl=US&ceid=US:en"
+    category: "tech"
+  
+  - name: "Google News - Startups"
+    url: "https://news.google.com/rss/search?q=tech+startup+OR+funding+OR+venture+capital&hl=en&gl=US&ceid=US:en"
+    category: "startups"
+  
+  - name: "Google News - Frameworks"
+    url: "https://news.google.com/rss/search?q=TypeScript+OR+React+OR+Next.js+OR+Rust+OR+Python&hl=en&gl=US&ceid=US:en"
+    category: "frameworks"
+  
+  # === Lobste.rs - Comunidad Curada ===
+  - name: "Lobsters"
+    url: "https://lobste.rs/rss"
+    category: "tech"
+  
+  - name: "Lobsters - AI"
+    url: "https://lobste.rs/t/ai.rss"
+    category: "ai"
+  
+  - name: "Lobsters - Programming"
+    url: "https://lobste.rs/t/programming.rss"
+    category: "programming"
+  
   # === Móviles & Apps ===
   - name: "Android Police"
     url: "https://www.androidpolice.com/feed/"
